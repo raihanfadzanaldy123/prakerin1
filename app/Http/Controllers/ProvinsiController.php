@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\provinsi;
+use App\Http\Controller\DB;
 use Illuminate\Http\Request;
 
 class ProvinsiController extends Controller
@@ -12,9 +13,15 @@ class ProvinsiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $provinsi = provinsi::all();
+        return view('provinsi.index', compact('provinsi'));
     }
 
     /**
@@ -24,7 +31,7 @@ class ProvinsiController extends Controller
      */
     public function create()
     {
-        //
+        return view('provinsi.create');
     }
 
     /**
@@ -35,7 +42,11 @@ class ProvinsiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $provinsi = new provinsi;
+        $provinsi->kode_provinsi = $request->kode_provinsi;
+        $provinsi->nama_provinsi = $request->nama_provinsi;
+        $provinsi->save(); //method khusus untuk inputan/menyimpan ke DB
+        return redirect()->route('provinsi.index');
     }
 
     /**
@@ -44,9 +55,10 @@ class ProvinsiController extends Controller
      * @param  \App\Models\provinsi  $provinsi
      * @return \Illuminate\Http\Response
      */
-    public function show(provinsi $provinsi)
+    public function show($id)
     {
-        //
+        $provinsi = provinsi::findOrFail($id);
+        return view('provinsi.show', compact('provinsi'));
     }
 
     /**
@@ -55,9 +67,10 @@ class ProvinsiController extends Controller
      * @param  \App\Models\provinsi  $provinsi
      * @return \Illuminate\Http\Response
      */
-    public function edit(provinsi $provinsi)
+    public function edit($id)
     {
-        //
+        $provinsi = provinsi::findOrFail($id);
+        return view('provinsi.edit', compact('provinsi'));
     }
 
     /**
@@ -67,9 +80,13 @@ class ProvinsiController extends Controller
      * @param  \App\Models\provinsi  $provinsi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, provinsi $provinsi)
+    public function update(Request $request, $id)
     {
-        //
+        $provinsi = provinsi::findOrFail($id);
+        $provinsi->kode_provinsi      = $request->kode_provinsi;
+        $provinsi->nama_provinsi      = $request->nama_provinsi;
+        $provinsi->save();
+        return redirect()->route('provinsi.index');
     }
 
     /**
@@ -78,8 +95,9 @@ class ProvinsiController extends Controller
      * @param  \App\Models\provinsi  $provinsi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(provinsi $provinsi)
+    public function destroy($id)
     {
-        //
+        $provinsi = provinsi::findOrFail($id)->delete();
+        return redirect()->route('provinsi.index');
     }
 }

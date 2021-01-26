@@ -1,22 +1,21 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class kecamatan extends Model
+class Kecamatan extends Model
 {
     use HasFactory;
 
     protected $table = "kecamatans";
         
     public function kota() {
-        return $this->belongsTo('App/kota','id_kota');
+        return $this->belongsTo('App\Models\kota','id_kota');
     }
 
     public function kelurahan() {
-        return $this->hasMany('App/kelurahan','id_kelurahan');
+        return $this->hasMany('App\kelurahan','id_kelurahan');
         
     }
 }

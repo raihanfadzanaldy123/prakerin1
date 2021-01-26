@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\rw;
+use App\Models\kelurahan;
 use Illuminate\Http\Request;
 
 class RwController extends Controller
@@ -12,9 +13,15 @@ class RwController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
-        //
+        $rw = rw::with('kelurahan')->get();
+        return view('rw.index', compact('rw'));
     }
 
     /**
@@ -24,7 +31,8 @@ class RwController extends Controller
      */
     public function create()
     {
-        //
+        $kelurahan = kelurahan::all();
+        return view('rw.create', compact('kelurahan'));
     }
 
     /**
@@ -35,7 +43,12 @@ class RwController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rw = new rw();
+        $rw->kode_rw = $request->kode_rw;
+        $rw->nama_rw = $request->nama_rw;
+        $rw->id_kelurahan = $request->id_kelurahan;
+        $rw->save(); //method khusus untuk inputan/menyimpan ke DB
+        return redirect()->route('rw.index');
     }
 
     /**
@@ -44,9 +57,10 @@ class RwController extends Controller
      * @param  \App\Models\rw  $rw
      * @return \Illuminate\Http\Response
      */
-    public function show(rw $rw)
+    public function show($id)
     {
-        //
+        $rw = rw::findOrFail($id);
+        return view('rw.show', compact('rw'));
     }
 
     /**
@@ -55,9 +69,11 @@ class RwController extends Controller
      * @param  \App\Models\rw  $rw
      * @return \Illuminate\Http\Response
      */
-    public function edit(rw $rw)
+    public function edit($id)
     {
-        //
+        $rw = rw::findOrFail($id);
+        $kelurahan = kelurahan::all();
+        return view('rw.edit', compact('rw','kelurahan'));
     }
 
     /**
@@ -67,9 +83,14 @@ class RwController extends Controller
      * @param  \App\Models\rw  $rw
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, rw $rw)
+    public function update(Request $request, $id)
     {
-        //
+        $rw = rw::findOrFail($id);
+        $rw->kode_rw      = $request->kode_rw;
+        $rw->nama_rw      = $request->nama_rw;
+        $rw->id_kelurahan        = $request->id_kelurahan;
+        $rw->save();
+        return redirect()->route('rw.index');
     }
 
     /**
@@ -78,8 +99,9 @@ class RwController extends Controller
      * @param  \App\Models\rw  $rw
      * @return \Illuminate\Http\Response
      */
-    public function destroy(rw $rw)
+    public function destroy($id)
     {
-        //
+        $rw = rw::findOrFail($id)->delete();
+        return redirect()->route('rw.index');
     }
 }

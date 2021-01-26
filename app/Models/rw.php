@@ -12,11 +12,11 @@ class rw extends Model
     protected $table = "rws";
     
     public function kelurahan() {
-        return $this->belongsTo('App/kelurahan','id_kelurahan');
+        return $this->belongsTo('App\Models\kelurahan','id_kelurahan');
     }
 
     public function jumlahKasus() {
-        return $this->hasMany('App/jumlahKasus','id_jumlahKasus');
+        return $this->hasMany('App\jumlahKasus','id_jumlahKasus');
         
     }
 }

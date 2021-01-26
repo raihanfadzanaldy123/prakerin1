@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\jumlahKasus;
+use App\Models\rw;
 use Illuminate\Http\Request;
 
 class JumlahKasusController extends Controller
@@ -12,9 +13,15 @@ class JumlahKasusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $kasus = jumlahKasus::with('rw')->get();
+        return view('kasus.index', compact('kasus'));
     }
 
     /**
@@ -24,7 +31,8 @@ class JumlahKasusController extends Controller
      */
     public function create()
     {
-        //
+        $rw = rw::all();
+        return view('kasus.create', compact('rw'));
     }
 
     /**
@@ -35,10 +43,16 @@ class JumlahKasusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kasus = new jumlahKasus();
+        $kasus->positif     = $request->positif;
+        $kasus->sembuh      = $request->sembuh;
+        $kasus->meninggal   = $request->meninggal;
+        $kasus->id_rw = $request->id_rw;
+        $kasus->save(); //method khusus untuk inputan/menyimpan ke DB
+        return redirect()->route('kasus.index');
     }
 
-    /**
+    /** 
      * Display the specified resource.
      *
      * @param  \App\Models\jumlahKasus  $jumlahKasus
@@ -55,9 +69,11 @@ class JumlahKasusController extends Controller
      * @param  \App\Models\jumlahKasus  $jumlahKasus
      * @return \Illuminate\Http\Response
      */
-    public function edit(jumlahKasus $jumlahKasus)
+    public function edit($id)
     {
-        //
+        $kasus = jumlahKasus::findOrFail($id);
+        $rw    = rw::all();
+        return view('kasus.edit', compact('kasus','rw'));
     }
 
     /**
@@ -67,9 +83,15 @@ class JumlahKasusController extends Controller
      * @param  \App\Models\jumlahKasus  $jumlahKasus
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, jumlahKasus $jumlahKasus)
+    public function update(Request $request, $id)
     {
-        //
+        $kasus = jumlahKasus::findOrFail($id);
+        $kasus->positif             = $request->positif;
+        $kasus->sembuh              = $request->sembuh;
+        $kasus->meninggal           = $request->meninggal;
+        $kasus->id_rw               = $request->id_rw;
+        $kasus->save();
+        return redirect()->route('kasus.index');
     }
 
     /**

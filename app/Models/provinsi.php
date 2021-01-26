@@ -10,9 +10,11 @@ class provinsi extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['kode_provinsi','nama_provinsi'];
+    public $timestamps = true;
     protected $table = "provinsis";
-
+    
     public function kota() {
-        return $this->hasMany('App/kota','id_kota');
+        return $this->hasMany('App\Models\kota','id_kota');
     }
 }
