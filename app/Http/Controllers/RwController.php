@@ -43,6 +43,14 @@ class RwController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'kode_rw' => 'required|max:4',
+            'nama_rw' => 'required|max:25'
+        ],  [
+            'kode_rw.required' => 'Tolong Masukan Kode Rukun Warga',
+            'nama_rw.required' => 'Tolong Masukan Nama Rukun Warga'
+        ]);
+
         $rw = new rw();
         $rw->kode_rw = $request->kode_rw;
         $rw->nama_rw = $request->nama_rw;

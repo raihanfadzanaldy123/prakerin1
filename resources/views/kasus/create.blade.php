@@ -174,9 +174,10 @@
                with font-awesome or any other icon font library -->
 
 
-                    <li class="nav-item">
+                  
+               <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <i class="nav-icon fas fa-globe-americas"></i>
                             <p>
                                 Kasus Global
                                 <i class="right fas fa-angle-left"></i>
@@ -187,13 +188,13 @@
 
                             <li class="nav-item">
                                 <a href="pages/charts/inline.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="far fa-square nav-icon"></i>
                                     <p>Negara</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/charts/uplot.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="far fa-square nav-icon"></i>
                                     <p>Kasus Negara</p>
                                 </a>
                             </li>
@@ -202,7 +203,7 @@
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tree"></i>
+                            <i class="nav-icon fas fa-globe-asia"></i>
                             <p>
                                 Kasus Indonesia
                                 <i class="fas fa-angle-left right"></i>
@@ -216,27 +217,33 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('kota.index') }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                <a href=" {{ route('kota.index') }} " class="nav-link">
+                                    <i class="far fa-square nav-icon"></i>
                                     <p>Kota</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/UI/buttons.html" class="nav-link">
-                                    <i class="far fa-triangle"></i>
+                                <a href="{{ route('kecamatan.index') }}" class="nav-link">
+                                    <i class="far fa-square nav-icon"></i>
                                     <p>Kecamatan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/UI/sliders.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                <a href="{{ route('kelurahan.index') }}" class="nav-link">
+                                    <i class="far fa-square nav-icon"></i>
                                     <p>Kelurahan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/UI/modals.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
+                                <a href="{{ route('rw.index') }}" class="nav-link">
+                                    <i class="far fa-square nav-icon"></i>
                                     <p>RW</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('kasus.index') }}" class="nav-link">
+                                    <i class="far fa-square nav-icon"></i>
+                                    <p>Jumlah Kasus</p>
                                 </a>
                             </li>
                         </ul>
@@ -265,26 +272,31 @@
                     </div>
                     <div class="card-body">
                         <form action="{{ route('kasus.store')}}" method="POST">
-                            @csrf
+                        @csrf
+                        @livewireStyles
+                        @livewire('dropdown')
+                        @livewireScripts
+                        
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Rukun Warga</label>
-                                <select class="form-control" name="id_rw" id="">
-                                    @foreach($rw as $data)
-                                    <option value="{{$data->id}}"> {{$data->nama_rw}} </option>
-                                    @endforeach
-                                </select>
+                                <label for="exampleInputPassword1">Jumlah Positif</label>
+                                <input type="text" class="form-control" name="positif" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
+                                @error('positif')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Positif</label>
-                                <input type="text" class="form-control" name="positif" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
+                                <label for="exampleInputPassword1">Jumlah Sembuh</label>
+                                <input type="text" class="form-control" name="sembuh" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
+                                @error('sembuh')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Sembuh</label>
-                                <input type="text" class="form-control" name="sembuh" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Meninggal</label>
-                                <input type="text" class="form-control" name="meninggal" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
+                                <label for="exampleInputPassword1">Jumlah Meninggal</label>
+                                <input type="text" class="form-control" name="meninggal" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
+                                @error('meninggal')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Tambah</button>

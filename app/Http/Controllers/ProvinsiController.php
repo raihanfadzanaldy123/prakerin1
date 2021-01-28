@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\provinsi;
 use App\Http\Controller\DB;
 use Illuminate\Http\Request;
+use Validator;
 
 class ProvinsiController extends Controller
 {
@@ -42,6 +43,14 @@ class ProvinsiController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'kode_provinsi' => 'required|max:4',
+            'nama_provinsi' => 'required|max:25'
+        ], [
+            'kode_provinsi.required' => 'Tolong Masukan Kode Provinsi',
+            'nama_provinsi.required' => 'Tolong Masukan Nama Provinsi'
+        ]);
+        
         $provinsi = new provinsi;
         $provinsi->kode_provinsi = $request->kode_provinsi;
         $provinsi->nama_provinsi = $request->nama_provinsi;

@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
+
+    
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -176,7 +178,7 @@
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <i class="nav-icon fas fa-globe-americas"></i>
                             <p>
                                 Kasus Global
                                 <i class="right fas fa-angle-left"></i>
@@ -202,7 +204,7 @@
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tree"></i>
+                            <i class="nav-icon fas fa-globe-asia"></i>
                             <p>
                                 Kasus Indonesia
                                 <i class="fas fa-angle-left right"></i>
@@ -276,7 +278,7 @@
         <!-- /.content-header -->
 
         <!-- Main content -->
-        
+
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -330,6 +332,7 @@
     <script src="{{ asset ('assets/dist/js/demo.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset ('assets/dist/js/pages/dashboard.js') }}"></script>
-</body>
 
+  
+</body>
 </html>

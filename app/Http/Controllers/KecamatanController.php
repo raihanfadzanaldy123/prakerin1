@@ -43,7 +43,15 @@ class KecamatanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $validatedData = $request->validate([
+            'kode_kecamatan' => 'required|max:4',
+            'nama_kecamatan' => 'required|max:25'
+        ],[
+            'kode_kecamatan.required' => 'Tolong Masukan Kode kecamatan',
+            'nama_kecamatan.required' => 'Tolong Masukan Nama kecamatan'
+        ]);
+
         $kecamatan = new kecamatan();
         $kecamatan->kode_kecamatan = $request->kode_kecamatan;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;

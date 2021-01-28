@@ -44,3 +44,5 @@ Route::resource('admin/rw', RwController::class);
 
 use App\Http\Controllers\JumlahKasusController;
 Route::resource('admin/kasus', JumlahKasusController::class);
+
+Route::view('dropdown','livewire.home');

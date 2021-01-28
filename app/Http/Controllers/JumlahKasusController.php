@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\jumlahKasus;
+use App\Models\provinsi;
+use App\Models\kota;
+use App\Models\kecamatan;
+use App\Models\kelurahan;
 use App\Models\rw;
 use Illuminate\Http\Request;
 
@@ -44,10 +48,10 @@ class JumlahKasusController extends Controller
     public function store(Request $request)
     {
         $kasus = new jumlahKasus();
-        $kasus->positif     = $request->positif;
-        $kasus->sembuh      = $request->sembuh;
-        $kasus->meninggal   = $request->meninggal;
-        $kasus->id_rw = $request->id_rw;
+        $kasus->positif         = $request->positif;
+        $kasus->sembuh          = $request->sembuh;
+        $kasus->meninggal       = $request->meninggal;
+        $kasus->id_rw           = $request->id_rw;
         $kasus->save(); //method khusus untuk inputan/menyimpan ke DB
         return redirect()->route('kasus.index');
     }
