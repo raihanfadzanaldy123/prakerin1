@@ -273,9 +273,13 @@
                         <form action="{{ route('kasus.update', $kasus->id)}}" method="POST">
                             @csrf
                             @livewireStyles
-                            @livewire('dropdown', ['selectedState5 => $kasus -> id_rw'])
+                           
                             @livewireScripts
                             @method('PUT')
+                            <div>
+                                @livewire('dropdown',['selectedState5' => $kasus->id_rw])
+                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Positif</label>
                                 <input type="text" class="form-control" name="positif" value="{{ $kasus->positif }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
