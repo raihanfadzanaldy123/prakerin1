@@ -10,9 +10,9 @@ class jumlahKasus extends Model
     use HasFactory;
 
     protected $table = "jumlah_Kasuses"; //sesuiankan dengan table di db
-    
-    public function rw() {
-        return $this->belongsTo('App\Models\rw','id_rw');
-    }
 
+    public function rw()
+    {
+        return $this->belongsTo('App\Models\rw', 'id_rw');
+    }
 }

@@ -173,8 +173,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-
-               <li class="nav-item">
+                    <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-globe-americas"></i>
                             <p>
@@ -187,13 +186,13 @@
 
                             <li class="nav-item">
                                 <a href="pages/charts/inline.html" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Negara</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/charts/uplot.html" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Kasus Negara</p>
                                 </a>
                             </li>
@@ -211,37 +210,37 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('provinsi.index') }}" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Provinsi</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href=" {{ route('kota.index') }} " class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Kota</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('kecamatan.index') }}" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Kecamatan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('kelurahan.index') }}" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Kelurahan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('rw.index') }}" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>RW</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('kasus.index') }}" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Jumlah Kasus</p>
                                 </a>
                             </li>
@@ -271,7 +270,7 @@
                     </div>
                     <div class="card-body">
                         <form action="{{ route('kecamatan.store')}}" method="POST">
-                        @csrf
+                            @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Kode kecamatan</label>
                                 <input type="text" class="form-control" name="kode_kecamatan" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">

@@ -11,9 +11,8 @@ class jumlahKasus2 extends Model
 
     protected $table = "jumlahKasuses";
 
-    public function negara() {
+    public function negara()
+    {
         return $this->belongsTo(negara::class);
     }
-
-
 }

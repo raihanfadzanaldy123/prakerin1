@@ -3,10 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\jumlahKasus;
-use App\Models\provinsi;
-use App\Models\kota;
-use App\Models\kecamatan;
-use App\Models\kelurahan;
 use App\Models\rw;
 use Illuminate\Http\Request;
 
@@ -62,9 +58,10 @@ class JumlahKasusController extends Controller
      * @param  \App\Models\jumlahKasus  $jumlahKasus
      * @return \Illuminate\Http\Response
      */
-    public function show(jumlahKasus $jumlahKasus)
+    public function show($id)
     {
-        //
+        $kasus = jumlahKasus::findOrFail($id);
+        return view('kasus.show', compact('kasus'));
     }
 
     /**
@@ -104,8 +101,9 @@ class JumlahKasusController extends Controller
      * @param  \App\Models\jumlahKasus  $jumlahKasus
      * @return \Illuminate\Http\Response
      */
-    public function destroy(jumlahKasus $jumlahKasus)
+    public function destroy($id)
     {
-        //
+        $kasus = jumlahKasus::findOrFail($id)->delete();
+        return redirect()->route('kasus.index');
     }
 }

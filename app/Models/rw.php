@@ -10,13 +10,14 @@ class rw extends Model
     use HasFactory;
 
     protected $table = "rws";
-    
-    public function kelurahan() {
-        return $this->belongsTo('App\Models\kelurahan','id_kelurahan');
+
+    public function kelurahan()
+    {
+        return $this->belongsTo('App\Models\kelurahan', 'id_kelurahan');
     }
 
-    public function jumlahKasus() {
-        return $this->hasMany('App\jumlahKasus','id_jumlahKasus');
-        
+    public function jumlahKasus()
+    {
+        return $this->hasMany('App\Models\jumlahKasus', 'id_rw');
     }
 }

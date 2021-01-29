@@ -174,9 +174,9 @@
                with font-awesome or any other icon font library -->
 
 
-                    <li class="nav-item">
+               <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <i class="nav-icon fas fa-globe-americas"></i>
                             <p>
                                 Kasus Global
                                 <i class="right fas fa-angle-left"></i>
@@ -187,13 +187,13 @@
 
                             <li class="nav-item">
                                 <a href="pages/charts/inline.html" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Negara</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/charts/uplot.html" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Kasus Negara</p>
                                 </a>
                             </li>
@@ -202,7 +202,7 @@
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-tree"></i>
+                            <i class="nav-icon fas fa-globe-asia"></i>
                             <p>
                                 Kasus Indonesia
                                 <i class="fas fa-angle-left right"></i>
@@ -211,32 +211,38 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ route('provinsi.index') }}" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Provinsi</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('kota.index') }}" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                <a href=" {{ route('kota.index') }} " class="nav-link">
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Kota</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/UI/buttons.html" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                <a href="{{ route('kecamatan.index') }}" class="nav-link">
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Kecamatan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/UI/sliders.html" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                <a href="{{ route('kelurahan.index') }}" class="nav-link">
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>Kelurahan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="pages/UI/modals.html" class="nav-link">
-                                    <i class="far fa-square nav-icon"></i>
+                                <a href="{{ route('rw.index') }}" class="nav-link">
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
                                     <p>RW</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('kasus.index') }}" class="nav-link">
+                                    <i class="fas fa-map-marker-alt nav-icon"></i>
+                                    <p>Jumlah Kasus</p>
                                 </a>
                             </li>
                         </ul>
@@ -294,10 +300,11 @@
                                 @php $no = 1; @endphp
                                 @foreach ($kasus as $data)
                                 <tr>
-                                    <th scope="row">{{ $no++ }}</th>
-                                    <td> {{$data->positif}} </td>
-                                    <td> {{$data->sembuh}} </td>
-                                    <td> {{$data->meninggal}} </td>
+                                    <th>    {{ $no++ }}                 </th>
+                                    <td>    {{$data->rw->nama_rw}}      </td>
+                                    <td>    {{$data->positif}}          </td>
+                                    <td>    {{$data->sembuh}}           </td>
+                                    <td>    {{$data->meninggal}}        </td>
                                     <td>
                                         <form action="{{route ('kasus.destroy', $data->id)}}" method="POST">
                                             @csrf
