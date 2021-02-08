@@ -14,7 +14,23 @@ class NegaraController extends Controller
      */
     public function index()
     {
-        //
+        $global = negara::all();
+        return view('global.index', compact('global'));
+    }
+
+    public function testAPI()
+    {
+        //global positif
+        $readAPIGlobPos = file_get_contents('https://api.kawalcorona.com/positif');
+        $data['globalPos'] = json_decode($readAPIGlobPos,true);
+
+        $readAPIGlobSem = file_get_contents('https://api.kawalcorona.com/sembuh');
+        $data['globalSem'] = json_decode($readAPIGlobSem,true);
+
+        $readAPIGlobMen    = file_get_contents('https://api.kawalcorona.com/meninggal');
+        $data['globalMen'] = json_decode($readAPIGlobMen,true);
+        return view('global.index', compact($data));
+
     }
 
     /**

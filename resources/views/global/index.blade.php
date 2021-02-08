@@ -31,6 +31,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
+
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
@@ -70,7 +71,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="{{ asset ('assets/dist/img/user1-128x128.jpg') }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                                <img src="{{ asset ('assets/dist/img/user1-128x128.jpg') }}" alt="User Avatar" class="img-size-50 mr-3 img-square">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
@@ -86,7 +87,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="{{ asset ('assets/dist/img/user8-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="{{ asset ('assets/dist/img/user8-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-square mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
@@ -102,7 +103,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="{{ asset ('assets/dist/img/user3-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                                <img src="{{ asset ('assets/dist/img/user3-128x128.jpg') }}" alt="User Avatar" class="img-size-50 img-square mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Nora Silvester
@@ -163,7 +164,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="{{ asset ('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="{{ asset ('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-square elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Angsam</span>
             </a>
 
@@ -258,44 +259,65 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <br>
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">PROVINSI</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="nav-item">
+                                <a href=" {{route('provinsi.create')}} " class="nav-link">
+                                    <button type="button" class="btn btn-outline-primary">Tambah Data</button>
+                                </a>
+
+
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
         <!-- /.content-header -->
 
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="">Tambah Data</h3>
+                <form action="{{route ('provinsi.store')}}">
+                    <div class="row">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Kode Provinsi</th>
+                                    <th scope="col">Provinsi</th>
+                                    <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php $no = 1; @endphp
+                                @foreach ($provinsi as $data)
+                                <tr>
+                                    <th scope="row">{{ $no++ }}</th>
+                                    <td> {{$data->kode_provinsi}} </td>
+                                    <td> {{$data->nama_provinsi}} </td>
+                                    <td>
+                                        <form action="{{route ('provinsi.destroy', $data->id)}}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{route('provinsi.show', $data->id)}}" class=" btn btn-outline-success ">Lihat</a>
+                                            <a href="{{route('provinsi.edit', $data->id)}}" class=" btn btn-outline-info ">Edit</a>
+                                            <button type="submit" class=" btn btn-outline-danger">Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <!-- ./col -->
                     </div>
-                    <div class="card-body">
-                        <form action="{{ route('rw.update', $rw->id)}}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Kode rw</label>
-                                <input type="text" class="form-control" name="kode_rw" value="{{ $rw->kode_rw }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nama Kelurahan</label>
-                                <select class="form-control" name="id_kelurahan" id="">
-                                    @foreach($kelurahan as $data)
-                                    <option value="{{$data->id}}"> {{$data->nama_kelurahan}} </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nama rw</label>
-                                <input type="text" class="form-control" name="nama_rw" value="{{ $rw->nama_rw }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-success">Ubah</button>
-                                <a href="{{url()->previous()}}" class=" btn btn-outline-info ">Kembali</a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                </form>
                 <!-- /.row -->
 
             </div><!-- /.container-fluid -->

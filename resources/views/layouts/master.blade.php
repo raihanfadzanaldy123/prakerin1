@@ -27,7 +27,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
 
-    
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -68,6 +68,7 @@
                         <i class="far fa-comments"></i>
                         <span class="badge badge-danger navbar-badge">3</span>
                     </a>
+
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
@@ -117,7 +118,6 @@
                             <!-- Message End -->
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                     </div>
                 </li>
                 <!-- Notifications Dropdown Menu -->
@@ -145,6 +145,14 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="nav-link" href=href="{{ route('logout') }}" onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();" role="button">
+                            <i class="fas fa-sign-out"> Logout</i>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -169,86 +177,98 @@
                 <span class="brand-text font-weight-light">Angsam</span>
             </a>
 
+
+
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
+                    <div class="sidebar">
+                        <!-- Sidebar user panel (optional) -->
+                        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                            <div class="image">
+                                <img src="img/ang-nav.jpg" class="img-circle elevation-2" alt="User Image">
+                            </div>
+                            <div class="info">
+                                <a href="" class="d-block">Raihan Fadzan Aldy</a>
+                            </div>
+                        </div>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-globe-americas"></i>
-                            <p>
-                                Kasus Global
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-globe-americas"></i>
+                                <p>
+                                    Kasus Global
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
 
 
-                            <li class="nav-item">
-                                <a href="pages/charts/inline.html" class="nav-link">
-                                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                                    <p>Negara</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/charts/uplot.html" class="nav-link">
-                                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                                    <p>Kasus Negara</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/inline.html" class="nav-link">
+                                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                                        <p>Negara</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/uplot.html" class="nav-link">
+                                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                                        <p>Kasus Negara</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-globe-asia"></i>
-                            <p>
-                                Kasus Indonesia
-                                <i class="fas fa-angle-left right"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('provinsi.index') }}" class="nav-link">
-                                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                                    <p>Provinsi</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href=" {{ route('kota.index') }} " class="nav-link">
-                                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                                    <p>Kota</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('kecamatan.index') }}" class="nav-link">
-                                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                                    <p>Kecamatan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('kelurahan.index') }}" class="nav-link">
-                                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                                    <p>Kelurahan</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('rw.index') }}" class="nav-link">
-                                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                                    <p>RW</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{ route('kasus.index') }}" class="nav-link">
-                                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                                    <p>Jumlah Kasus</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-globe-asia"></i>
+                                <p>
+                                    Kasus Indonesia
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('provinsi.index') }}" class="nav-link">
+                                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                                        <p>Provinsi</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href=" {{ route('kota.index') }} " class="nav-link">
+                                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                                        <p>Kota</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('kecamatan.index') }}" class="nav-link">
+                                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                                        <p>Kecamatan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('kelurahan.index') }}" class="nav-link">
+                                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                                        <p>Kelurahan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('rw.index') }}" class="nav-link">
+                                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                                        <p>RW</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('kasus.index') }}" class="nav-link">
+                                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                                        <p>Jumlah Kasus</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
                 </ul>
             </nav>
@@ -333,6 +353,7 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset ('assets/dist/js/pages/dashboard.js') }}"></script>
 
-  
+
 </body>
+
 </html>

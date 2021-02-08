@@ -46,3 +46,11 @@ use App\Http\Controllers\JumlahKasusController;
 Route::resource('admin/kasus', JumlahKasusController::class);
 
 Route::view('dropdown','livewire.home');
+
+// Route Global
+use App\Http\Controllers\NegaraController;
+Route::resource('global/index', NegaraController::class);
+
+// route front-end
+use App\Http\Controllers\FrontEndController;
+Route::resource('index', FrontEndController::class);

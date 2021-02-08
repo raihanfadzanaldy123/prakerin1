@@ -17,10 +17,11 @@ class CreateKotasTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('id_provinsi');
             $table->foreign('id_provinsi')
-                  ->references('id')->on('provinsis')
-                  ->onDelete('cascade');
+                ->references('id')->on('provinsis')
+                ->onDelete('cascade');
+            $table->string('kode_kota');
             $table->string('nama_kota');
-            $table->timestamps(); 
+            $table->timestamps();
         });
     }
 

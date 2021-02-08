@@ -1,104 +1,108 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Provinsi;
-use App\Http\Controller\DB;
-use Illuminate\Http\Request;
-
-class ProvinsiController extends Controller
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+class ApiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    /* public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    */
+    public function index(){
 
-    public function index()
-    {
-        $provinsi = provinsi::all();
-        return view('provinsi.index', compact('provinsi'));
-    }
+        $positif = DB::table('rws')
+                 ->select('kasuses.jumlah_positif',
+                 'kasuses.jumlah_meninggal','kasuses.jumlah_sembuh')
+                 ->join('kasuses','rws.id','kasuses.id_rw')
+                 ->sum('kasuses.jumlah_positif');
+      $meninggal = DB::table('rws')
+                 ->select('kasuses.jumlah_positif',
+                 'kasuses.jumlah_meninggal','kasuses.jumlah_sembuh')
+                 ->join('kasuses','rws.id','=','kasuses.id_rw')
+                 ->sum('kasuses.jumlah_meninggal');
+      $sembuh = DB::table('rws')
+                 ->select('kasuses.jumlah_positif',
+                 'kasuses.jumlah_meninggal','kasuses.jumlah_sembuh')
+                 ->join('kasuses','rws.id','=','kasuses.id_rw')
+                 ->sum('kasuses.jumlah_sembuh');
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('provinsi.create');
-    }
+                 $res = [
+                     'success' => true,
+                     'Data'             => 'Data Kasus Indonesia',
+                     'Jumlah Positif'   => $positif,
+                     'Jumlah Meninggal' => $meninggal,
+                     'Jumlah Sembuh'    => $sembuh,
+                     'message' => 'Data Kasus Ditampilkan'
+                 ];
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request,$id)
-    {
-        $provinsi = new provinsi;
-        $provinsi->kode_provinsi = $request->kode_provinsi;
-        $provinsi->nama_provinsi = $request->nama_provinsi;
-        $provinsi->save(); //method khusus untuk inputan/menyimpan ke DB
-        return redirect()->route('provinsi.index');
+                 return response()->json($res,200);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Provinsi  $provinsi
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        $provinsi = provinsi::findOrFail($id);
-        return view('provinsi.show', compact('provinsi'));
+        $positif = DB::table('provinsis')
+            ->join('kotas', 'kotas.id_provinsi', '=', 'provinsis.id')
+            ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
+            ->join('kelurahans', 'kelurahans.id_kecamatan', '=', 'kecamatans.id')
+            ->join('rws', 'rws.id_kelurahan', '=', 'kelurahans.id')
+            ->join('kasuses', 'kasuses.id_rw', '=', 'rws.id')
+            ->select('kasuses.jumlah_positif')
+            ->where('provinsis.id', $id)
+            ->sum('kasuses.jumlah_positif');
+
+        $sembuh = DB::table('provinsis')
+            ->join('kotas', 'kotas.id_provinsi', '=', 'provinsis.id')
+            ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
+            ->join('kelurahans', 'kelurahans.id_kecamatan', '=', 'kecamatans.id')
+            ->join('rws', 'rws.id_kelurahan', '=', 'kelurahans.id')
+            ->join('kasuses', 'kasuses.id_rw', '=', 'rws.id')
+            ->select('kasuses.jumlah_sembuh')
+            ->where('provinsis.id', $id)
+            ->sum('kasuses.jumlah_sembuh');
+
+        $meninggal = DB::table('provinsis')
+            ->join('kotas', 'kotas.id_provinsi', '=', 'provinsis.id')
+            ->join('kecamatans', 'kecamatans.id_kota', '=', 'kotas.id')
+            ->join('kelurahans', 'kelurahans.id_kecamatan', '=', 'kecamatans.id')
+            ->join('rws', 'rws.id_kelurahan', '=', 'kelurahans.id')
+            ->join('kasuses', 'kasuses.id_rw', '=', 'rws.id')
+            ->select('kasuses.jumlah_meninggal')
+            ->where('provinsis.id', $id)
+            ->sum('kasuses.jumlah_meninggal');
+
+
+        $provinsi = provinsi::whereId($id)->first();
+        $res = [
+            'success'           => true,
+            'Data'              => 'Data Kasus Berdasarkan Provinsi',
+            'Kode Provinsi'     => $provinsi['kode_provinsi'],
+            'Provinsi'          => $provinsi['nama_provinsi'],
+            'Jumlah Positif'    => $positif,
+            'Jumlah Sembuh'     => $sembuh,
+            'Jumlah Meninngal'  => $meninggal,
+            'message'           => 'Data Kasus di Tampilkan'
+        ];
+        return response()->json($res, 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Provinsi  $provinsi
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $provinsi = provinsi::findOrFail($id);
-        return view('provinsi.edit', compact('provinsi'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Provinsi  $provinsi
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $provinsi = provinsi::findOrFail($id);
-        $provinsi->kode_provinsi = $request->kode_provinsi;
-        $provinsi->nama_provinsi = $request->nama_provinsi;
-        $provinsi->save();
-        return redirect()->route('provinsi.index');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Provinsi  $provinsi
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $provinsi = provinsi::findOrFail($id)->delete();
-        return redirect()->route('provinsi.index');
-    }
+            public function provinsi3(){
+                 $nampil = DB::table('provinsis')
+                ->join('kotas','kotas.id_provinsi','=','provinsis.id')
+                ->join('kecamatans','kecamatans.id_kota','=','kotas.id')
+                ->join('kelurahans','kelurahans.id_kecamatan','=','kecamatans.id')
+                ->join('rws','rws.id_kelurahan','=','kelurahans.id')
+                ->join('kasuses','kasuses.id_rw','=','rws.id')
+                ->select('nama_provinsi',
+                      DB::raw('sum(kasuses.jumlah_positif) as jumlah_positif'),
+                      DB::raw('sum(kasuses.jumlah_meninggal) as jumlah_meninggal'),
+                      DB::raw('sum(kasuses.jumlah_sembuh) as jumlah_sembuh'))
+                ->groupBy('nama_provinsi')
+                ->get();
+ 
+                $res = [
+                    'success' => true,
+                    'Data'    => $nampil,
+                    'message' => 'Data Kasus Provinsi Ditampilkan'
+                ];
+                 return response()->json($res,200);
+            }
 }
+

@@ -44,7 +44,7 @@ class KotaController extends Controller
      */
     public function store(Request $request)
     {
-        $$validatedData = $request->validate([
+        $validatedData = $request->validate([
             'kode_kota' => 'required|max:4',
             'nama_kota' => 'required|max:25'
         ], [

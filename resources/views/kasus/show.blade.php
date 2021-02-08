@@ -162,7 +162,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="" class="brand-link">
                 <img src="{{ asset ('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Angsam</span>
             </a>
@@ -267,14 +267,18 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="">Tambah Data</h3>
+                        <h3 class="">Info Data</h3>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('rw.index')}}" method="POST">
+                        <form action="{{ route('kasus.index')}}" method="POST">
                             @csrf
                             @livewireStyles
-                            @livewire('dropdown')
                             @livewireScripts
+                            <div>
+                                @livewire('dropdown',['selectedState5' => $kasus->id_rw])
+                            </div>
+
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Positif</label>
                                 <input type="text" class="form-control" name="kode_rw" value="{{ $kasus->positif }}" readonly id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">

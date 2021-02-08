@@ -289,6 +289,7 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">No</th>
+                                    <th scope="col">Detail Data</th>
                                     <th scope="col">Rukun Warga</th>
                                     <th scope="col">Positif</th>
                                     <th scope="col">Sembuh</th>
@@ -300,7 +301,14 @@
                                 @php $no = 1; @endphp
                                 @foreach ($kasus as $data)
                                 <tr>
-                                    <th>    {{ $no++ }}                 </th>
+                                    <td>    {{ $no++ }}                 </td>
+                                    <td>    
+                                        Provinsi :    {{$data->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi}} <br>
+                                        Kota :        {{$data->rw->kelurahan->kecamatan->kota->nama_kota}} <br>
+                                        Kecamatan :    {{$data->rw->kelurahan->kecamatan->nama_kecamatan}} <br>
+                                        Kelurahan :   {{$data->rw->kelurahan->nama_kelurahan}}    <br>     
+                                            
+                                    </td>
                                     <td>    {{$data->rw->nama_rw}}      </td>
                                     <td>    {{$data->positif}}          </td>
                                     <td>    {{$data->sembuh}}           </td>
