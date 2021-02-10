@@ -12,10 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\FrontEndController;
+Route::resource('/', FrontEndController::class);
 
 Auth::routes();
 
@@ -28,29 +26,28 @@ Route::get('test', function () {
 Route::get('admin', [App\Http\Controllers\HomeController::class, 'admin']);
 
 use App\Http\Controllers\ProvinsiController;
+
 Route::resource('admin/provinsi', ProvinsiController::class);
 
 use App\Http\Controllers\KotaController;
+
 Route::resource('admin/kota', KotaController::class);
 
 use App\Http\Controllers\KecamatanController;
+
 Route::resource('admin/kecamatan', KecamatanController::class);
 
 use App\Http\Controllers\KelurahanController;
+
 Route::resource('admin/kelurahan', KelurahanController::class);
 
 use App\Http\Controllers\RwController;
+
 Route::resource('admin/rw', RwController::class);
-
 use App\Http\Controllers\JumlahKasusController;
+
 Route::resource('admin/kasus', JumlahKasusController::class);
+Route::view('dropdown', 'livewire.home');
 
-Route::view('dropdown','livewire.home');
 
-// Route Global
-use App\Http\Controllers\NegaraController;
-Route::resource('global/index', NegaraController::class);
 
-// route front-end
-use App\Http\Controllers\FrontEndController;
-Route::resource('index', FrontEndController::class);

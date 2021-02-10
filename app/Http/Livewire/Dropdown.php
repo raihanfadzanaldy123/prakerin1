@@ -32,13 +32,13 @@ class Dropdown extends Component
         $this->rw = collect();
         $this->selectedState5 = $selectedState5;
 
-        if (!is_null($selectedState5)) {
+        if (!is_null($selectedState5)) { // Jika rw di isi maka ... 
             $rw = rw::with('kelurahan.kecamatan.kota.provinsi')->find($selectedState5); // mencari data rw di DB
             if ($rw) {
                 $this->rw = rw::where('id_kelurahan', $rw->id_kelurahan)->get(); //mengambil data kelurahan melalui id_rw
-                $this->kelurahan = kelurahan::where('id_kecamatan', $rw->kelurahan->id_kecamatan)->get(); //mengambil 
-                $this->kecamatan = kecamatan::where('id_kota', $rw->kelurahan->kecamatan->id_kota)->get();
-                $this->kota = kota::where('id_provinsi', $rw->kelurahan->kecamatan->kota->id_provinsi)->get();
+                $this->kelurahan = kelurahan::where('id_kecamatan', $rw->kelurahan->id_kecamatan)->get(); //mengambil data kecamatan melalui id_kelurahan
+                $this->kecamatan = kecamatan::where('id_kota', $rw->kelurahan->kecamatan->id_kota)->get(); //mengambil data kota memlalui id_kecamatan
+                $this->kota = kota::where('id_provinsi', $rw->kelurahan->kecamatan->kota->id_provinsi)->get(); //mengambil data provinsi melalui id_kota
                 $this->selectedState  = $rw->kelurahan->kecamatan->kota->id_provinsi;
                 $this->selectedState2 = $rw->kelurahan->kecamatan->id_kota;
                 $this->selectedState3 = $rw->kelurahan->id_kecamatan;

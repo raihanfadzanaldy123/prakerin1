@@ -23,7 +23,6 @@ class CreateJumlahKasusesTable extends Migration
             $table->integer('positif');
             $table->integer('sembuh');
             $table->integer('meninggal');
-            $table->date('tanggal');
             $table->timestamps();
         });
     }

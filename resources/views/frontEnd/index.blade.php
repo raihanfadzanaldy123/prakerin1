@@ -70,28 +70,28 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-gem text-primary mb-4"></i>
+                        <i class="fas fa-4x fas fa-plus text-primary mb-4"></i>
                         <h3 class="h4 mb-2">Total Positif</h3>
                         <p class="text-muted h3 mb-4"><span data-toggle="counter-up">232</span></p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
+                        <i class="fas fa-4x fas fa-heartbeat text-primary mb-4"></i>
                         <h3 class="h4 mb-2">Total Sembuh</h3>
                         <p class="text-muted h3 mb-4"><span data-toggle="counter-up">232</span></p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-globe text-primary mb-4"></i>
+                        <i class="fas fa-4x fa-skull text-primary mb-4"></i>
                         <h3 class="h4 mb-2">Total Meninggal</h3>
                         <p class="text-muted h3 mb-4"><span data-toggle="counter-up">232</span></p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-4x fa-heart text-primary mb-4"></i>
+                        <i class="fas fa-4x fa-globe-asia text-primary mb-4"></i>
                         <h3 class="h4 mb-2">INDONESIA</h3>
                         <p class="text-muted h3 mb-4"><span data-toggle="counter-up">232</span></p>
                     </div>
@@ -100,12 +100,12 @@
         </div>
     </section>
     <!-- Portfolio-->
-    <div id="portfolio">
+    <!-- <div id="portfolio">
         <div class="container-fluid p-0">
             <div class="row no-gutters">
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="" />
+                    <a class="portfolio-box" href="{{ asset ('frontEnd/assets/img/portfolio/fullsize/1.jpg') }}">
+                        <img class="img-fluid" src="{{ asset ('frontEnd/assets/img/portfolio/thumbnails/1.jpg') }}" alt="" />
                         <div class="portfolio-box-caption">
                             <div class="project-category text-white-50">Category</div>
                             <div class="project-name">Project Name</div>
@@ -113,8 +113,8 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="" />
+                    <a class="portfolio-box" href="{{ asset ('frontEnd/assets/img/portfolio/fullsize/2.jpg') }}">
+                        <img class="img-fluid" src="{{ asset ('frontEnd/assets/img/portfolio/thumbnails/2.jpg') }}" alt="" />
                         <div class="portfolio-box-caption">
                             <div class="project-category text-white-50">Category</div>
                             <div class="project-name">Project Name</div>
@@ -122,8 +122,8 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="" />
+                    <a class="portfolio-box" href="{{ asset ('frontEnd/assets/img/portfolio/fullsize/3.jpg') }}">
+                        <img class="img-fluid" src="{{ asset ('frontEnd/assets/img/portfolio/thumbnails/3.jpg') }}" alt="" />
                         <div class="portfolio-box-caption">
                             <div class="project-category text-white-50">Category</div>
                             <div class="project-name">Project Name</div>
@@ -131,8 +131,8 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="" />
+                    <a class="portfolio-box" href="{{ asset ('frontEnd/assets/img/portfolio/fullsize/4.jpg') }}">
+                        <img class="img-fluid" src="{{ asset ('frontEnd/assets/img/portfolio/thumbnails/4.jpg') }}" alt="" />
                         <div class="portfolio-box-caption">
                             <div class="project-category text-white-50">Category</div>
                             <div class="project-name">Project Name</div>
@@ -140,8 +140,8 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg">
-                        <img class="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="" />
+                    <a class="portfolio-box" href="{{ asset ('frontEnd/assets/img/portfolio/fullsize/5.jpg') }}">
+                        <img class="img-fluid" src="{{ asset ('frontEnd/assets/img/portfolio/thumbnails/5.jpg') }}" alt="" />
                         <div class="portfolio-box-caption">
                             <div class="project-category text-white-50">Category</div>
                             <div class="project-name">Project Name</div>
@@ -159,12 +159,85 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Call to action-->
-    <section class="page-section bg-dark text-white">
-        <div class="container text-center">
-            <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-            <a class="btn btn-light btn-xl" href="https://startbootstrap.com/theme/creative/">Download Now!</a>
+    <section class="page-section bg-primary text-black">
+        <div class="container text">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-2">Data Kasus Coronavirus di Indonesia Berdasarkan Provinsi</h5>
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry the Bird</td>
+                            <td>Thornton</td>
+                            <td>@twitter</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
         </div>
     </section>
     <!-- Contact-->

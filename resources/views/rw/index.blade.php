@@ -289,7 +289,6 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">Kode Rukun Warga</th>
                                     <th scope="col">Kelurahan</th>
                                     <th scope="col">Rukun Warga</th>
                                     <th scope="col">Aksi</th>
@@ -300,7 +299,6 @@
                                 @foreach ($rw as $data)
                                 <tr>
                                     <th scope="row">{{ $no++ }}</th>
-                                    <td> {{$data->kode_rw}} </td>
                                     <td> {{$data->kelurahan->nama_kelurahan}} </td>
                                     <td> {{$data->nama_rw}} </td>
                                     <td>

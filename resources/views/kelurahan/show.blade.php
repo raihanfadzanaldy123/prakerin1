@@ -272,10 +272,7 @@
                     <div class="card-body">
                         <form action="{{ route('kelurahan.index')}}" method="POST">
                             @csrf
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Kode Kecamatan</label>
-                                <input type="text" class="form-control" name="kode_kelurahan" value="{{ $kelurahan->kode_kelurahan }}" readonly id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
-                            </div>
+                
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nama Kota</label>
                                 <input type="text" class="form-control" name="nama_kecamatan" value="{{ $kelurahan->kecamatan->nama_kecamatan }}" readonly id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">

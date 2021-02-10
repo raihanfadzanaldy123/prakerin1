@@ -271,13 +271,7 @@
                     <div class="card-body">
                         <form action="{{ route('rw.store')}}" method="POST">
                             @csrf
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Kode rw</label>
-                                <input type="text" class="form-control" name="kode_rw" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
-                                @error('kode_rw')
-                                <div class="alert alert-danger">{{ $message}}</div>
-                                @enderror
-                            </div>
+                           
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nama kelurahan</label>
                                 <select class="form-control" name="id_kelurahan" id="">

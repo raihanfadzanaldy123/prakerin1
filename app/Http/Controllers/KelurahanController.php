@@ -45,15 +45,12 @@ class KelurahanController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'kode_kelurahan' => 'required|max:4',
             'nama_kelurahan' => 'required|max:25'
         ], [
-            'kode_kelurahan.required' => 'Tolong Masukan Kode kelurahan',
             'nama_kelurahan.required' => 'Tolong Masukan Nama kelurahan'
         ]);
 
         $kelurahan = new kelurahan();
-        $kelurahan->kode_kelurahan = $request->kode_kelurahan;
         $kelurahan->nama_kelurahan = $request->nama_kelurahan;
         $kelurahan->id_kecamatan = $request->id_kecamatan;
         $kelurahan->save(); //method khusus untuk inputan/menyimpan ke DB

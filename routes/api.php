@@ -24,7 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('provinsi', [provinsiController::class, 'index']);
-Route::get('indonesia', [ApiController::class, 'index']);
+Route::get('indonesia', [ApiController::class, 'indo']);
 Route::get('indonesia/provinsi{id}', [ApiController::class, 'show']);
 
 Route::get('indonesia/provinsi', [ApiController::class, 'provinsi']);

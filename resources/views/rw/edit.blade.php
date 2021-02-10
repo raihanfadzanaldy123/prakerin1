@@ -273,10 +273,7 @@
                         <form action="{{ route('rw.update', $rw->id)}}" method="POST">
                             @csrf
                             @method('PUT')
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Kode rw</label>
-                                <input type="text" class="form-control" name="kode_rw" value="{{ $rw->kode_rw }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
-                            </div>
+                          
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nama Kelurahan</label>
                                 <select class="form-control" name="id_kelurahan" id="">
