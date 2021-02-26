@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\jumlahKasus;
+use App\Models\JumlahKasus;
 use App\Models\rw;
 use Illuminate\Http\Request;
 
