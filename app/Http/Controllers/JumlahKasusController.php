@@ -20,7 +20,7 @@ class JumlahKasusController extends Controller
 
     public function index()
     {
-        $kasus = jumlahKasus::with('rw')->get();
+        $kasus = JumlahKasus::with('rw')->get();
         return view('kasus.index', compact('kasus'));
     }
 
@@ -43,7 +43,7 @@ class JumlahKasusController extends Controller
      */
     public function store(Request $request)
     {
-        $kasus = new jumlahKasus();
+        $kasus = new JumlahKasus();
         $kasus->positif         = $request->positif;
         $kasus->sembuh          = $request->sembuh;
         $kasus->meninggal       = $request->meninggal;
@@ -60,7 +60,7 @@ class JumlahKasusController extends Controller
      */
     public function show($id)
     {
-        $kasus = jumlahKasus::findOrFail($id);
+        $kasus = JumlahKasus::findOrFail($id);
         return view('kasus.show', compact('kasus'));
     }
 
@@ -72,7 +72,7 @@ class JumlahKasusController extends Controller
      */
     public function edit($id)
     {
-        $kasus = jumlahKasus::findOrFail($id);
+        $kasus = JumlahKasus::findOrFail($id);
         $rw    = rw::all();
         return view('kasus.edit', compact('kasus','rw'));
     }
@@ -86,7 +86,7 @@ class JumlahKasusController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $kasus = jumlahKasus::findOrFail($id);
+        $kasus = JumlahKasus::findOrFail($id);
         $kasus->positif             = $request->positif;
         $kasus->sembuh              = $request->sembuh;
         $kasus->meninggal           = $request->meninggal;
@@ -103,7 +103,7 @@ class JumlahKasusController extends Controller
      */
     public function destroy($id)
     {
-        $kasus = jumlahKasus::findOrFail($id)->delete();
+        $kasus = JumlahKasus::findOrFail($id)->delete();
         return redirect()->route('kasus.index');
     }
 }
