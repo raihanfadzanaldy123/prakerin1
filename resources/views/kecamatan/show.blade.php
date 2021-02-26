@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Admin Tracking Covid</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -174,35 +174,11 @@
                with font-awesome or any other icon font library -->
 
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-globe-americas"></i>
-                            <p>
-                                Kasus Global
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-
-
-                            <li class="nav-item">
-                                <a href="pages/charts/inline.html" class="nav-link">
-                                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                                    <p>Negara</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/charts/uplot.html" class="nav-link">
-                                    <i class="fas fa-map-marker-alt nav-icon"></i>
-                                    <p>Kasus Negara</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-globe-asia"></i>
+                            <i class="nav-icon fas fa-globe-asia text-info"></i>
                             <p>
                                 Kasus Indonesia
                                 <i class="fas fa-angle-left right"></i>

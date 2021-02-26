@@ -18,6 +18,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ asset ('frontEnd/assets/css/styles.css') }}" rel="stylesheet" />
+    <!-- Table Pagination -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -33,50 +36,49 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#indonesia">Data Kasus Indonesia</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#provinsi">Data Kasus Proinvsi</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#global">Data Kasus Global</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#layanan">Layanan</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Masthead-->
-    <!-- <header class="masthead">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-10 align-self-end">
-                        
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-                    </div>
-                </div>
+    <header class="page-section bg-primary" id="judul">
+        <div class="container h-100"">
+            <div class=" row h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-10 align-self-end">
+                <i class="fas fa-3x fal fa-virus text-white mb-4"></i>
+                <i class="fas fa-6x fal fa-virus text-white mb-4"></i>
+                <i class="fas fa-3x fal fa-virus text-white mb-4"></i>
+                <h1 class="text-uppercase text-white font-weight-bold">TRACKING COVID</h1>
+                <h2 class="text-uppercase text-white font-weight-bold">Coronavirus Global & Indonesia Live Data</h2> <br> <br><br>
+                <p class="text-white">Update terakhir : {{ $tanggal }}</p>
             </div>
-        </header> -->
-    <!-- About-->
-    <section class="page-section bg-primary" id="judul">
+        </div>
+        </div>
+    </header>
+    <!-- About -->
+    <!-- <section class="page-section bg-primary" id="judul">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h1 class="text-uppercase text-white font-weight-bold">TRACKING COVID</h1> <br>
-                    <i class="fas fa-3x fal fa-virus text-white mb-4"></i>
-                    <i class="fas fa-6x fal fa-virus text-white mb-4"></i>
-                    <i class="fas fa-3x fal fa-virus text-white mb-4"></i>
-                    <h5 class="text-uppercase text-white font-weight-bold">Data Kasus Indonesia</h5>
+
+
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Services-->
     <section class="page-section" id="indonesia">
         <div class="container">
-            <!-- <h2 class="text-center mt-0">At Your Service</h2>
-            <hr class="divider my-4" /> -->
-
+            <h2 class="text-center mt-0">Data Kasus Indonesia</h2>
+            <hr>
             <div class="row justify-content-center">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
                         <i class="fas fa-6x fas fa-plus text-primary mb4"></i>
+                        <br><br>
                         <h3 class="h4 mb-2">Total Positif</h3>
-                        <p class="text-muted h3 mb-4"><span data-toggle="counter-up">{{ $positif }}</span></p>
+                        <p class="text-muted h3 mb-4"><span data-toggle="counter-up"> {{$positif}}</span></p>
                         <p class="text-muted mb-0">Orang</p>
                     </div>
                 </div>
@@ -84,27 +86,20 @@
                     <div class="mt-5">
                         <i class="fas fa-6x fas fa-heartbeat text-primary mb-4"></i>
                         <h3 class="h4 mb-2">Total Sembuh</h3>
-                        <p class="text-muted h3 mb-4"><span data-toggle="counter-up">{{ $sembuh }}</span></p>
+                        <h2 class="text-muted h3 mb-4"><span data-toggle="counter-up">{{ $sembuh }}</span></h2>
                         <p class="text-muted mb-0">Orang</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="mt-5">
-                        <i class="fas fa-6x fa-skull text-primary mb-4"></i>
+                        <i class="fas fa-6x fa-skull-crossbones text-primary mb-4"></i>
                         <h3 class="h4 mb-2">Total Meninggal</h3>
-                        <p class="text-muted h3 mb-4"><span data-toggle="counter-up">{{ $meninggal }}</span></p>
-
+                        <p class="text-muted h3 mb-4"><span data-toggle="counter-up">{{ $meninggal}}</span></p>
+                        <p class="text-muted mb-0">Orang</p>
                     </div>
                 </div>
-                <!-- <div class="col-lg-3 col-md-6 text-center">
-                    <div class="mt-5">
-                        <i class="fas fa-4x fa-globe-asia text-primary mb-4"></i>
-                        <h3 class="h4 mb-2">INDONESIA</h3>
-                        <p class="text-muted h3 mb-4"><span data-toggle="counter-up"></span></p>
-                    </div>
-                </div> -->
-            </div>
 
+            </div>
         </div>
     </section>
     <!-- Portfolio-->
@@ -176,7 +171,7 @@
                     <h5 class="mb-2">Data Kasus Coronavirus di Indonesia Berdasarkan Provinsi</h5>
                 </div>
 
-                <table class="table table-bordered">
+                <table class="table table-bordered auto ">
                     <thead>
                         <tr>
                             <th scope="col">No</th>
@@ -190,13 +185,13 @@
                         @php
                         $no = 1;
                         @endphp
-                        @foreach($data as $dataCorona)
+                        @foreach($provinsi as $dataCovid)
                         <tr>
                             <th scope="row">{{ $no++ }}</th>
-                            <td>{{ $dataCorona['attributes']['Provinsi']   }}</td>
-                            <td>{{ $dataCorona['attributes']['Kasus_Posi'] }}</td>
-                            <td>{{ $dataCorona['attributes']['Kasus_Semb'] }}</td>
-                            <td>{{ $dataCorona['attributes']['Kasus_Meni'] }}</td>
+                            <td>{{ $dataCovid->nama_provinsi }}</td>
+                            <td>{{ $dataCovid->positif}}</td>
+                            <td>{{ $dataCovid->sembuh}}</td>
+                            <td>{{ $dataCovid->meninggal }}</td>
                         </tr>
                         @endforeach
 
@@ -211,21 +206,19 @@
     <!-- Kasus Global -->
     <section class="page-section" id="global">
         <div class="container">
-
             <div class="card">
                 <div class="card-header">
                     <h5 class="mb-2">Data Kasus Coronavirus di Dunia</h5>
                 </div>
-
-                <table class="table table-bordered">
-                    <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+                <div class="card-body">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Negara</th>
-                                <th scope="col">POSITIF</th>
-                                <th scope="col">SEMBUH</th>
-                                <th scope="col">MENINGGAL</th>
+                                <th>No</th>
+                                <th>Negara</th>
+                                <th>POSITIF</th>
+                                <th>SEMBUH</th>
+                                <th>MENINGGAL</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -234,22 +227,22 @@
                             @endphp
                             @foreach($data3 as $dataCorona3)
                             <tr>
-                                <th scope="row">{{ $no++ }}</th>
+                                <th>{{ $no++ }}</th>
                                 <td>{{ $dataCorona3['attributes']['Country_Region']   }}</td>
-                                <td>{{ $dataCorona3['attributes']['Confirmed'] }}</td>
-                                <td>{{ $dataCorona3['attributes']['Recovered'] }}</td>
-                                <td>{{ $dataCorona3['attributes']['Deaths'] }}</td>
+                                <td>{{ number_format($dataCorona3['attributes']['Confirmed'] )}}</td>
+                                <td>{{ number_format($dataCorona3['attributes']['Recovered']) }}</td>
+                                <td>{{ number_format($dataCorona3['attributes']['Deaths']) }}</td>
                             </tr>
                             @endforeach
-                    </div>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact-->
-    <section class="page-section bg-primary" id="contact">
+    <!-- <section class="page-section bg-primary" id="contact">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
@@ -265,10 +258,66 @@
                 </div>
                 <div class="col-lg-4 mr-auto text-center">
                     <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                    <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
                     <a class="d-block text-white" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
                 </div>
             </div>
+        </div>
+    </section> --> &nbsp;&nbsp;&nbsp;
+
+    <!-- Layanan Section -->
+    <section id="layanan" class="page-section bg-primary">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Layanan</h2>
+                <h3>Berikut <span>Layanan</span></h3>
+                <h4>
+                    <p>beberapa lembaga mengenai tentang coronavirus</p>
+                </h4>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3  " data-aos="zoom-out" data-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                        <h4><a class="text-white" href="https://www.unicef.org/indonesia/id/coronavirus">
+                                Novel Coronavirus (COVID-19)</a></h4>
+                        <p>Hal-hal yang perlu anda ketahui</p><br>
+                        <p>Unicef</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3  " data-aos="zoom-out" data-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-file"></i></div>
+                        <h4><a class="text-white" href="https://www.kompas.com/tren/read/2020/03/03/183500265/infografik-daftar-100-rumah-sakit-rujukan-penanganan-virus-corona">
+                                Daftar Rumah Sakit</a></h4> <br>
+                        <p>Daftar 100 rumah sakit di Indoneis rujukan penanganan virus corona</p><br>
+                        <p>Kompas</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3  " data-aos="zoom-out" data-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-tachometer"></i></div>
+                        <h4><a class="text-white" href="https://infeksiemerging.kemkes.go.id/">
+                                Media Informasi</a></h4> <br>
+                        <p>Media informasi resmi penyakit Infeksi Emerging</p><br>
+                        <p>Kementrian Kesehatan</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3  " data-aos="zoom-out" data-aos-delay="100">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-first-aid"></i></div>
+                        <h4><a class="text-white" href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">
+                                Coronavirus Disease(COVID-19)</a></h4>
+                        <p>Coronavirus Disease advice for the public</p><br>
+                        <p>WHO</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
     <!-- Footer-->
@@ -289,6 +338,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <!-- Core theme JS-->
     <script src="{{ asset ('frontEnd/assets/js/scripts.js') }}"></script>
+    <!-- Table Pagination -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
+    </script>
 </body>
 
 </html>

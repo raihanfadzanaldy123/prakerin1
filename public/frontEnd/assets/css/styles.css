@@ -10075,7 +10075,7 @@ hr.light {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/bg-masthead.jpg");
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../frontEnd/assets/img/bg-masthead.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -10143,3 +10143,44 @@ header.masthead h1 {
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
 }
+
+.scrollbar{
+  position: relative;
+  height: 500px;
+  overflow: scroll;
+  display: block;
+  }
+
+  .my-custom-scrollbar {
+    position: relative;
+    height: 500px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    height: 500px;
+    }
+
+    .counts .count-box {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .counts .count-box span {
+      font-size: 48px;
+      line-height: 48px;
+      display: block;
+      font-weight: 700;
+      color: #124265;
+      margin-left: 80px;
+      margin: auto;
+    }
+    
+    .counts .count-box p {
+      padding: 8px 0 0 0;
+      font-family: "Raleway", sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: #1e6ca6;
+    }
+    
