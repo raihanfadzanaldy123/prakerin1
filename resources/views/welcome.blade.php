@@ -49,7 +49,7 @@
                 <i class="fas fa-3x fal fa-virus text-white mb-4"></i>
                 <i class="fas fa-6x fal fa-virus text-white mb-4"></i>
                 <i class="fas fa-3x fal fa-virus text-white mb-4"></i>
-                <h1 class="text-uppercase text-white font-weight-bold">TRACKING COVID</h1>
+                <h1 class="text-uppercase text-white font-weight-bold">TRACKING COVID-19</h1>
                 <h2 class="text-uppercase text-white font-weight-bold">Coronavirus Global & Indonesia Live Data</h2> <br> <br><br>
                 <p class="text-white">Update terakhir : {{ $tanggal }}</p>
             </div>
