@@ -24,6 +24,7 @@ class FrontEndController extends Controller
     public function index()
     {
         //API Kawal Corona
+
         $all = Http::get('https://api.kawalcorona.com/indonesia/provinsi');
         $data = $all->json();
         $all2 = Http::get('https://api.kawalcorona.com/indonesia');
@@ -38,6 +39,7 @@ class FrontEndController extends Controller
         $tanggal = Carbon::now()->isoFormat('dddd, D MMMM Y');
 
         //Data Provinsi
+
         $provinsi = DB::table('jumlah_kasuses')
             ->select(
                 'nama_provinsi',
@@ -53,7 +55,8 @@ class FrontEndController extends Controller
             ->groupBy('nama_provinsi')
             ->get();
 
-        //Jumlah kasus
+        //Jumlah kasus Berdasarkan Data Angsam
+
         $positif = DB::table('rws')
             ->select('jumlah_kasuses.positif', 'jumlah_kasuses.sembuh', 'jumlah_kasuses.meninggal')
             ->join('jumlah_kasuses', 'rws.id', '=', 'jumlah_kasuses.id_rw')
@@ -69,6 +72,7 @@ class FrontEndController extends Controller
             ->join('jumlah_kasuses', 'rws.id', '=', 'jumlah_kasuses.id_rw')
             ->sum('jumlah_kasuses.meninggal');
 
-        return view('welcome', compact('data', 'data2', 'data3', 'provinsi', 'positif', 'sembuh', 'meninggal', 'tanggal'));
+        return view('welcome', compact('positif', 'sembuh', 'meninggal', 'tanggal', 'data', 'data2', 'data3', 'provinsi'));
+        // 'data', 'data2', 'data3', 'provinsi',
     }
 }

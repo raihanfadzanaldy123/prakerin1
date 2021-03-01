@@ -78,7 +78,9 @@
                         <i class="fas fa-6x fas fa-plus text-primary mb4"></i>
                         <br><br>
                         <h3 class="h4 mb-2">Total Positif</h3>
-                        <p class="text-muted h3 mb-4"><span data-toggle="counter-up"> {{$positif}}</span></p>
+                        <p class="text-muted h3 mb-4"><span data-toggle="counter-up">
+                                {{$positif}}
+                            </span></p>
                         <p class="text-muted mb-0">Orang</p>
                     </div>
                 </div>
@@ -86,7 +88,9 @@
                     <div class="mt-5">
                         <i class="fas fa-6x fas fa-heartbeat text-primary mb-4"></i>
                         <h3 class="h4 mb-2">Total Sembuh</h3>
-                        <h2 class="text-muted h3 mb-4"><span data-toggle="counter-up">{{ $sembuh }}</span></h2>
+                        <h2 class="text-muted h3 mb-4"><span data-toggle="counter-up">
+                                {{ $sembuh }}
+                            </span></h2>
                         <p class="text-muted mb-0">Orang</p>
                     </div>
                 </div>
@@ -94,7 +98,9 @@
                     <div class="mt-5">
                         <i class="fas fa-6x fa-skull-crossbones text-primary mb-4"></i>
                         <h3 class="h4 mb-2">Total Meninggal</h3>
-                        <p class="text-muted h3 mb-4"><span data-toggle="counter-up">{{ $meninggal}}</span></p>
+                        <p class="text-muted h3 mb-4"><span data-toggle="counter-up">
+                                {{ $meninggal}}
+                            </span></p>
                         <p class="text-muted mb-0">Orang</p>
                     </div>
                 </div>
@@ -187,11 +193,19 @@
                         @endphp
                         @foreach($provinsi as $dataCovid)
                         <tr>
-                            <th scope="row">{{ $no++ }}</th>
-                            <td>{{ $dataCovid->nama_provinsi }}</td>
-                            <td>{{ $dataCovid->positif}}</td>
-                            <td>{{ $dataCovid->sembuh}}</td>
-                            <td>{{ $dataCovid->meninggal }}</td>
+                            <th scope="row">{{ $no++ }} </th>
+                            <td>
+                                {{ $dataCovid->nama_provinsi }}
+                            </td>
+                            <td>
+                                {{ $dataCovid->positif}}
+                            </td>
+                            <td>
+                                {{ $dataCovid->sembuh}}
+                            </td>
+                            <td>
+                                {{ $dataCovid->meninggal }}
+                            </td>
                         </tr>
                         @endforeach
 
@@ -222,18 +236,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php
+                            <!-- @php
                             $no = 1;
                             @endphp
-                            @foreach($data3 as $dataCorona3)
+                            @foreach($data3 as $dataCorona3) -->
                             <tr>
-                                <th>{{ $no++ }}</th>
-                                <td>{{ $dataCorona3['attributes']['Country_Region']   }}</td>
-                                <td>{{ number_format($dataCorona3['attributes']['Confirmed'] )}}</td>
-                                <td>{{ number_format($dataCorona3['attributes']['Recovered']) }}</td>
-                                <td>{{ number_format($dataCorona3['attributes']['Deaths']) }}</td>
+                                <th><!-- {{ $no++ }} --> </th>
+                                <td>
+                                    <!-- {{ $dataCorona3['attributes']['Country_Region']} } -->
+                                </td>
+                                <td>
+                                    <!-- {{ number_format($dataCorona3['attributes']['Confirmed'] )}} -->
+                                </td>
+                                <td>
+                                    <!-- {{ number_format($dataCorona3['attributes']['Recovered']) }} -->
+                                </td>
+                                <td>
+                                    <!-- {{ number_format($dataCorona3['attributes']['Deaths']) }} -->
+                                </td>
                             </tr>
-                            @endforeach
+                            <!-- @endforeach -->
                         </tbody>
                     </table>
                 </div>

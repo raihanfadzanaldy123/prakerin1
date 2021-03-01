@@ -41,12 +41,12 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="index3.html" class="nav-link">Home</a>
                 </li>
-               
+
             </ul>
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-     
+
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
@@ -72,7 +72,7 @@
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-               
+
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -147,20 +147,19 @@
                         <form action="{{ route('kelurahan.update', $kelurahan->id)}}" method="POST">
                             @csrf
                             @method('PUT')
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="exampleInputEmail1">Kode Kelurahan</label>
                                 <input type="text" class="form-control" name="kode_kelurahan" value="{{ $kelurahan->kode_kelurahan }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Nama Kecamatan</label>
                                 <select class="form-control" name="id_kecamatan" id="">
                                     @foreach($kecamatan as $data)
-                                    <option value="{{$data->id}}"
-                                    @if($data->nama_kecamatan == $kelurahan->kecamatan->nama_kecamatan)
+                                    <option value="{{$data->id}}" @if($data->nama_kecamatan == $kelurahan->kecamatan->nama_kecamatan)
                                         selected
-                                    @endif
-                                    >
-                                     {{$data->nama_kecamatan}} 
+                                        @endif
+                                        >
+                                        {{$data->nama_kecamatan}}
                                     </option>
                                     @endforeach
                                 </select>

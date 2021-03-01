@@ -79,7 +79,7 @@ class KelurahanController extends Controller
     {
         $kelurahan = kelurahan::findOrFail($id);
         $kecamatan = kecamatan::all();
-        return view('kelurahan.edit', compact('kelurahan','kecamatan'));   
+        return view('kelurahan.edit', compact('kelurahan', 'kecamatan'));
     }
 
     /**
@@ -89,10 +89,9 @@ class KelurahanController extends Controller
      * @param  \App\Models\kelurahan  $kelurahan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $kelurahan = kelurahan::findOrFail($id);
-        $kelurahan->kode_kelurahan      = $request->kode_kelurahan;
         $kelurahan->nama_kelurahan      = $request->nama_kelurahan;
         $kelurahan->id_kecamatan        = $request->id_kecamatan;
         $kelurahan->save();

@@ -147,7 +147,6 @@
                         <form action="{{ route('kasus.update', $kasus->id)}}" method="POST">
                             @csrf
                             @livewireStyles
-                           
                             @livewireScripts
                             @method('PUT')
                             <div>

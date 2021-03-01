@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontEndController;
 use Illuminate\Support\Facades\Auth;
 
+Auth::routes(['register'=>false, 'reset'=>false]);
+
 Route::resource('/', FrontEndController::class);
 
 Auth::routes();
