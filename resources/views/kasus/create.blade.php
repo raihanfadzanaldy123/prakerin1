@@ -152,21 +152,21 @@
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Jumlah Positif</label>
-                                <input type="text" class="form-control" name="positif" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
+                                <input type="number" class="form-control" name="positif" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
                                 @error('positif')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Jumlah Sembuh</label>
-                                <input type="text" class="form-control" name="sembuh" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
+                                <input type="number" class="form-control" name="sembuh" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
                                 @error('sembuh')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Jumlah Meninggal</label>
-                                <input type="text" class="form-control" name="meninggal" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
+                                <input type="number" class="form-control" name="meninggal" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
                                 @error('meninggal')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

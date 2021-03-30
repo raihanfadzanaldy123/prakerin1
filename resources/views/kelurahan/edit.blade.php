@@ -152,7 +152,7 @@
                                 <input type="text" class="form-control" name="kode_kelurahan" value="{{ $kelurahan->kode_kelurahan }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
                             </div> -->
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nama Kecamatan</label>
+                                <label for="exampleInputEmail1">Nama Kelurahan</label>
                                 <select class="form-control" name="id_kecamatan" id="">
                                     @foreach($kecamatan as $data)
                                     <option value="{{$data->id}}" @if($data->nama_kecamatan == $kelurahan->kecamatan->nama_kecamatan)

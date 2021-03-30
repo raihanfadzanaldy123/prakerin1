@@ -193,7 +193,7 @@
                                         <form action="{{route ('kasus.destroy', $data->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{route('kasus.show', $data->id)}}" class=" btn btn-outline-success ">Lihat</a>
+                                            <!-- <a href="{{route('kasus.show', $data->id)}}" class=" btn btn-outline-success ">Lihat</a> -->
                                             <a href="{{route('kasus.edit', $data->id)}}" class=" btn btn-outline-info ">Edit</a>
                                             <button type="submit" class=" btn btn-outline-danger">Hapus</button>
                                         </form>

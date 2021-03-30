@@ -43,6 +43,16 @@ class JumlahKasusController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'positif'   => 'required|max:25',
+            'sembuh'    => 'required|max:25',
+            'meninggal' => 'required|max:25'
+        ], [
+            'positif.required' => 'Tolong Masukan yang Terkonfirmasi Positif',
+            'sembuh.required' => 'Tolong Masukan yang Terkonfirmasi Sembuh',
+            'meninggal.required' => 'Tolong Masukan yang Terkonfirmasi Meninggal'
+        ]);
+
         $kasus = new jumlahKasus();
         $kasus->positif         = $request->positif;
         $kasus->sembuh          = $request->sembuh;
@@ -74,7 +84,7 @@ class JumlahKasusController extends Controller
     {
         $kasus = jumlahKasus::findOrFail($id);
         $rw    = rw::all();
-        return view('kasus.edit', compact('kasus','rw'));
+        return view('kasus.edit', compact('kasus', 'rw'));
     }
 
     /**

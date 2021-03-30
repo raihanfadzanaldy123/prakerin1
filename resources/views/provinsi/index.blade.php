@@ -44,11 +44,11 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="index3.html" class="nav-link">Home</a>
                 </li>
-                
+
             </ul>
-            
+
             <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">                
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
@@ -66,7 +66,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="{{ url('/admin') }}" class="brand-link">
                 <img src="{{ asset ('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-square elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Angsam</span>
             </a>
@@ -78,7 +78,7 @@
                with font-awesome or any other icon font library -->
 
 
-              
+
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -185,7 +185,7 @@
                                         <form action="{{route ('provinsi.destroy', $data->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{route('provinsi.show', $data->id)}}" class=" btn btn-outline-success ">Lihat</a>
+                                            <!-- <a href="{{route('provinsi.show', $data->id)}}" class=" btn btn-outline-success ">Lihat</a> -->
                                             <a href="{{route('provinsi.edit', $data->id)}}" class=" btn btn-outline-info ">Edit</a>
                                             <button type="submit" class=" btn btn-outline-danger">Hapus</button>
                                         </form>

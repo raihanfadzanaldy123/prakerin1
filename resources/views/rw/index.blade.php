@@ -181,7 +181,7 @@
                                         <form action="{{route ('rw.destroy', $data->id)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="{{route('rw.show', $data->id)}}" class=" btn btn-outline-success ">Lihat</a>
+                                            <!-- <a href="{{route('rw.show', $data->id)}}" class=" btn btn-outline-success ">Lihat</a> -->
                                             <a href="{{route('rw.edit', $data->id)}}" class=" btn btn-outline-info ">Edit</a>
                                             <button type="submit" class=" btn btn-outline-danger">Hapus</button>
                                         </form>

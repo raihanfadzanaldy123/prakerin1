@@ -55,6 +55,7 @@ class FrontEndController extends Controller
             ->groupBy('nama_provinsi')
             ->get();
 
+            
         //Jumlah kasus Berdasarkan Data Angsam
 
         $positif = DB::table('rws')

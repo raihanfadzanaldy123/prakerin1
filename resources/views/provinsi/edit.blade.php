@@ -146,7 +146,7 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="">Tambah Data</h3>
+                        <h3 class="">Ubah Data</h3>
                     </div>
                     <div class="card-body">
                         <form action="{{route('provinsi.update' ,$provinsi->id)}}" method="POST">

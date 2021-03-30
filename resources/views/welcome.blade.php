@@ -236,26 +236,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- @php
+                            @php
                             $no = 1;
                             @endphp
-                            @foreach($data3 as $dataCorona3) -->
+                            @foreach($data3 as $dataCorona3)
                             <tr>
-                                <th><!-- {{ $no++ }} --> </th>
+                                <th>{{ $no++ }} </th>
                                 <td>
-                                    <!-- {{ $dataCorona3['attributes']['Country_Region']} } -->
+                                    {{ $dataCorona3['attributes']['Country_Region'] }}
                                 </td>
                                 <td>
-                                    <!-- {{ number_format($dataCorona3['attributes']['Confirmed'] )}} -->
+                                    {{ number_format($dataCorona3['attributes']['Confirmed'] )}}
                                 </td>
                                 <td>
-                                    <!-- {{ number_format($dataCorona3['attributes']['Recovered']) }} -->
+                                    {{ number_format($dataCorona3['attributes']['Recovered']) }}
                                 </td>
                                 <td>
-                                    <!-- {{ number_format($dataCorona3['attributes']['Deaths']) }} -->
+                                    {{ number_format($dataCorona3['attributes']['Deaths']) }}
                                 </td>
                             </tr>
-                            <!-- @endforeach -->
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
