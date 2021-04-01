@@ -140,16 +140,15 @@
                     <div class="col-sm-6">
                         <h1 class="m-0">KELURAHAN</h1>
                     </div><!-- /.col -->
-                    <div class="col-sm-6">
+                    <!-- <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="nav-item">
                                 <a href=" {{route('kelurahan.create')}} " class="nav-link">
                                     <button type="button" class="btn btn-outline-primary">Tambah Data</button>
                                 </a>
-
-
                         </ol>
-                    </div><!-- /.col -->
+                    </div> -->
+                    <!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>

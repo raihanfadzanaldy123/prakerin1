@@ -43,14 +43,15 @@ class JumlahKasusController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'positif'   => 'required|max:25',
-            'sembuh'    => 'required|max:25',
-            'meninggal' => 'required|max:25'
+        $request->validate([
+            'positif'   => 'required|max:25|',
+            'sembuh'    => 'required|max:25|',
+            'meninggal' => 'required|max:25|'
         ], [
             'positif.required' => 'Tolong Masukan yang Terkonfirmasi Positif',
             'sembuh.required' => 'Tolong Masukan yang Terkonfirmasi Sembuh',
-            'meninggal.required' => 'Tolong Masukan yang Terkonfirmasi Meninggal'
+            'meninggal.required' => 'Tolong Masukan yang Terkonfirmasi Meninggal',
+
         ]);
 
         $kasus = new jumlahKasus();
@@ -96,6 +97,19 @@ class JumlahKasusController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'positif'   => 'required|max:25|min:0',
+            'sembuh'    => 'required|max:25|min:0',
+            'meninggal' => 'required|max:25|min:0'
+        ], [
+            'positif.required' => 'Tolong Masukan yang Terkonfirmasi Positif',
+            'sembuh.required' => 'Tolong Masukan yang Terkonfirmasi Sembuh',
+            'meninggal.required' => 'Tolong Masukan yang Terkonfirmasi Meninggal',
+            'positif.min' => 'Jangan masukkan nilai (-)',
+            'sembuh.min' => 'Jangan masukkan nilai (-)',
+            'meninggal.min' => 'Jangan masukkan nilai (-)'
+        ]);
+
         $kasus = jumlahKasus::findOrFail($id);
         $kasus->positif             = $request->positif;
         $kasus->sembuh              = $request->sembuh;

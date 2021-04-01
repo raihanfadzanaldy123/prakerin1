@@ -156,14 +156,23 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Positif</label>
                                 <input type="text" class="form-control" name="positif" value="{{ $kasus->positif }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
+                                @error('positif')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Sembuh</label>
                                 <input type="text" class="form-control" name="sembuh" value="{{ $kasus->sembuh }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
+                                @error('sembuh')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Jumlah Meninggal</label>
                                 <input type="text" class="form-control" name="meninggal" value="{{ $kasus->meninggal }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan Kode Provinsi">
+                                @error('meninggal')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror                            
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Ubah</button>

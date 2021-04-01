@@ -41,12 +41,12 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="index3.html" class="nav-link">Home</a>
                 </li>
-               
+
             </ul>
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-               
+
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
@@ -72,7 +72,7 @@
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                   
+
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -152,26 +152,26 @@
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Jumlah Positif</label>
-                                <input type="number" class="form-control" name="positif" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
+                                <input type="number" class="form-control @error('positif') is-invalid @enderror " name="positif" id="exampleInputPassword1" min="1" placeholder="Masukan Nama Provinsi">
                                 @error('positif')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Jumlah Sembuh</label>
-                                <input type="number" class="form-control" name="sembuh" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
+                                <input type="number" class="form-control @error('sembuh') is-invalid @enderror " name="sembuh" id="exampleInputPassword1" min="1" placeholder="Masukan Nama Provinsi">
                                 @error('sembuh')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Jumlah Meninggal</label>
-                                <input type="number" class="form-control" name="meninggal" id="exampleInputPassword1" placeholder="Masukan Nama Provinsi">
+                                <input type="number" class="form-control @error('meninggal') is-invalid @enderror " name="meninggal" id="exampleInputPassword1" min="1" placeholder="Masukan Nama Provinsi">
                                 @error('meninggal')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            
+
                             <div class="form-group">
                                 <button type="submit" class="btn btn-success">Tambah</button>
                                 <a href="{{url()->previous()}}" class=" btn btn-outline-info ">Kembali</a>
